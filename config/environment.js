@@ -23,12 +23,18 @@ module.exports = function(environment) {
     }
   };
 
+  //CORS issues is on api server. not ember.js
+  //https://stackoverflow.com/questions/30147362/access-control-allow-origin-error-when-using-ember-jswith-ember-cli
+  
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.contentSecurityPolicy = {
+      'connect-src': "'self' http://localhost:8000"
+    }
   }
 
   if (environment === 'test') {

@@ -1,5 +1,27 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+ <div>
+    Read all:
+    <ul>
+      {{#each model as |game|}}
+        <li>{{game.title}}, id {{game.id}}</li>
+      {{/each}}
+    </ul>
+  </div>
 
-{{outlet}}
+  <div>
+    <button {{action 'readBoardGame'}}>Read Board Game 1</button>
+  </div>
+
+  <div>
+    {{input value= newBoardGame placeholder="board game name"}}
+    <button {{action 'createBoardGame'}}>Create</button>
+  </div>
+
+  <div>
+    {{input value= updatedTitle placeholder="new name for board game 1"}}
+    <button {{action 'updateBoardGame'}}>Update</button>
+  </div>
+
+  <div>
+    {{input value= destroyId placeholder="id of game to delete"}}
+    <button {{action 'destroyBoardGame'}}>Delete</button>
+  </div>
