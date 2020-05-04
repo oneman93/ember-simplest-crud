@@ -38,7 +38,14 @@ export default Controller.extend({
     destroyBoardGame() {
       let destroyId = this.get('destroyId')
       let game = this.get('model').findBy('id', destroyId)
-      game.destroyRecord() // destroy deletes & saves in one step
+      // game.destroyRecord() // destroy deletes & saves in one step
+   
+      if (game) {
+        game.destroyRecord().then(function(response) {
+          return response.isDeleted;
+        });
+      }
+
     }
   }
 
