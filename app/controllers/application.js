@@ -21,7 +21,8 @@ export default Controller.extend({
       let newBoardGame = this.get('newBoardGame')
       // create a record in Ember Data (locally, would not survive page refresh)
       let newRecord = this.store.createRecord('boardgame', {
-        title: newBoardGame
+        title: newBoardGame,
+        dt_date_received: new Date()
       })
       // Save the record to the API endpoint specified in adapters/application.js
       newRecord.save()

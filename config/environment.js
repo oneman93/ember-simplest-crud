@@ -32,9 +32,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    // mo, 7/6/20, I don't know why I put below, but without this it was still working.
+
     ENV.contentSecurityPolicy = {
-      'connect-src': "'self' http://localhost:8000"
+    'connect-src': "'self' http://52.76.216.215"
     }
+    
   }
 
   if (environment === 'test') {
